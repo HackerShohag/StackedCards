@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Document</title>
 
 	<link href="../dist/stackedCards.css" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link href="css/highlight.css" rel="stylesheet">
+	<link href="css/typewriter.css" rel="stylesheet">
 
 	<script src="https://cdn.jsdelivr.net/highlight.js/9.9.0/highlight.min.js"></script>
 	<script>hljs.initHighlightingOnLoad();</script>
 
 
 	<style>
-		*, *:before, *:after {
+		*,
+		*:before,
+		*:after {
 			box-sizing: border-box;
 		}
+
 		body {
 			color: #444;
 		}
+
 		html {
 			height: 100%;
 		}
+
 		body {
 			font-family: "Roboto", sans-serif;
-			width:  100%;
+			width: 100%;
 			height: 100%;
 			min-height: 100%;
 			margin: 0px;
@@ -75,11 +82,14 @@
 		}
 
 		.stacked-cards-fanOut li img {
-			max-height: 200px;
+			object-fit: cover;
+			max-height: 20%;
+			border-radius: 50px;
 		}
 
 		.stacked-cards li {
-			height: 250px;
+			height: 500px;
+			width: 500px;
 		}
 
 		@media (max-width: 767px) {
@@ -121,6 +131,7 @@
 			padding: 25px 5px;
 			background-color: #fff;
 		}
+
 		.header img {
 			display: block;
 			margin: 0 auto;
@@ -128,73 +139,65 @@
 			height: auto;
 		}
 
-		
+		.fill {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden
+		}
+
+		.fill img {
+			object-fit: fill;
+			flex-shrink: 0;
+			min-width: 40%;
+			min-height: 100%;
+			max-width: 50%;
+			height: auto;
+			opacity: 50;
+		}
 	</style>
 
 </head>
+
 <body>
-	
+
 	<div id="wrap">
-		<div class="header">
-			<img src="img/logo.png" alt="Stacked Cards">
-			<div class="intro">
-				Give your content boxes a stacked cards look with each card swapping with other.
-			</div>
-			
-		</div>
-		<div class="container-fixed stacked-cards stacked-cards-slide">
-			<h2>Slide</h2>
-			<ul>
-				<li>
-				</li>
-				<li>
-				</li>
-				<li>
-				</li>
-				<li>
-				</li>
-				<li>
-				</li>
-				<li>
-				</li>
-				<li>
-				</li>
-				<li>
-				</li>
-				<li>
-				</li>
-			</ul>
-		</div>
 
 		<div class="container-fixed source">
-<pre>
-<code class="javascript">
-	var stackedCard = new stackedCards({
-	 	selector: '.stacked-cards',
-	 	layout: "slide",
-	 	transformOrigin: "center",
-	});
-
-	stackedCard.init();
-
-</code>
-</pre>
 		</div>
-
-		<div class="divider"></div>
 
 		<div class="container-fixed stacked-cards stacked-cards-fanOut">
-			<h2>FanOut</h2>
+			<h2>A B D</h2>
 			<ul>
 				<li>
+					<div class="typewriter">
+						<img src="img/Shohag_smiling.jpg" alt="">
+						<h1>
+							Random Fact <br>
+							I love coding.
+						</h1>
+					</div>
 				</li>
 				<li>
 				</li>
 				<li>
 				</li>
 				<li>
+					<div class="typewriter">
+						<img src="img/codes.jpg" alt=""
+							style="border-bottom-left-radius:0%; border-bottom-right-radius:0%; font-size: small">
+						<h1 style="top: 92%;">
+							Special acquaintance in C++
+						</h1>
+					</div>
 				</li>
 				<li>
+					<div class="typewriter">
+						<img src="img/profile_bk.jpg" alt="">
+						<h1>
+							Codifying the existances.
+						</h1>
+					</div>
 				</li>
 				<li>
 				</li>
@@ -208,80 +211,14 @@
 		</div>
 
 		<div class="container-fixed source">
-<pre>
-<code class="javascript">
-	var stackedCard = new stackedCards({
-	 	selector: '.stacked-cards',
-	 	layout: "fanOut",
-	 	transformOrigin: "bottom",
-	});
-
-	stackedCard.init();
-
-</code>
-</pre>
 		</div>
-		
-		
 
 		<div class="divider"></div>
 
 		<br><br>
 
-		<div class="container-fixed">
-			<h2>Usage</h2>
-			<p>
-				1. Setup HTML Markup
-				<div class="source">
-					<pre>
-						<code class="html">
-	&lt;div class="mycards"&gt;
-		&lt;ul&gt;
-			&lt;li&gt;your content&lt;/li&gt;
-			&lt;li&gt;your content&lt;/li&gt;
-			&lt;li&gt;your content&lt;/li&gt;
-			&lt;li&gt;your content&lt;/li&gt;
-			&lt;li&gt;your content&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/div&gt;
-						</code>
-					</pre>
-				</div>
-			</p>
-
-			<p>
-				2. Add stackedCards.css &amp; stackedCards.js into &lt;head&gt; You may add stackedCards.js before your closing &lt;/body&gt; tag
-				<div class="source">
-					<pre>
-						<code class="html">
-	&lt;link rel="stylesheet" type="text/css" href="stackedCards.css"/&gt;
-	&lt;script src="stackedCards.js"&gt;&lt;script&gt;
-						</code>
-					</pre>
-				</div>
-			</p>
-
-			<p>
-				3. Initialize the stackedCards in your script file
-				<div class="source">
-					<pre>
-						<code class="javascript">
-	var stackedCard = new stackedCards({
-	 	selector: '.mycards',
-	 	layout: "slide",
-	 	transformOrigin: "center",
-	});
-
-	stackedCard.init();
-
-						</code>
-					</pre>
-				</div>
-			</p>
-		</div>
-
 		<div class="container-fixed" style="text-align: center;">
-			<!--<a href="#">Checkout on Github</a>-->
+			<p>Hey there whats up?</p>
 		</div>
 
 		<br>
@@ -291,21 +228,14 @@
 	<script src="../dist/stackedCards.min.js"></script>
 
 	<script>
-		var stackedCardSlide = new stackedCards({
-		 	selector: '.stacked-cards-slide',
-		 	layout: "slide",
-		 	transformOrigin: "center",
-		 });
-
-		stackedCardSlide.init();
-
 		var stackedCardFanOut = new stackedCards({
-		 	selector: '.stacked-cards-fanOut',
-		 	layout: "fanOut",
-		 	transformOrigin: "bottom",
-		 });
+			selector: '.stacked-cards-fanOut',
+			layout: "fanOut",
+			transformOrigin: "bottom",
+		});
 
 		stackedCardFanOut.init();
 	</script>
 </body>
+
 </html>

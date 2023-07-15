@@ -1,6 +1,11 @@
+:root {
+    --current-z-index: 0;
+}
+
 .stacked-cards {
     position: relative;
 }
+
 .stacked-cards ul {
     position: relative;
     max-width: 60%;
@@ -11,13 +16,13 @@
 .stacked-cards li {
     margin-top: 5px;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 50px;
     box-shadow: 0 3px 6px 0px #333;
     list-style: none;
     width: 65%;
     position: absolute;
     left: 50%;
-    transition: 0.5s ease transform;
+    transition: 1s ease transform;
 }
 
 .stacked-cards li:after {
@@ -28,18 +33,82 @@
     right: 0;
     top: 0;
 }
+
 .stacked-cards li.active:after {
     display: none;
 }
+
 .stacked-cards li img {
     position: relative;
     display: block;
     max-width: 100%;
     height: auto;
-    z-index: 4;
+    margin-bottom: 40px;
+    object-fit: fill;
+    opacity: 40;
 }
+
 .stacked-cards li.active {
     cursor: default;
     box-shadow: 0 5px 10px 0px #333;
     transition: 0.5s ease transform;
+    z-index: 45;
+}
+
+.leftSlideAnimation {
+    animation:
+        slideFromLeft 0.5s 1,
+        stackOutAnimation 0.25s step-end;
+    -webkit-animation-fill-mode: forwards;
+    /* Chrome 16+, Safari 4+ */
+    -moz-animation-fill-mode: forwards;
+    /* FF 5+ */
+    -o-animation-fill-mode: forwards;
+    /* Not implemented yet */
+    -ms-animation-fill-mode: forwards;
+    /* IE 10+ */
+    animation-fill-mode: forwards;
+    /* When the spec is finished */
+}
+
+.rightSlideAnimation {
+    animation:
+        slideFromRight 0.5s 1,
+        stackOutAnimation 0.25s step-end;
+    -webkit-animation-fill-mode: forwards;
+    /* Chrome 16+, Safari 4+ */
+    -moz-animation-fill-mode: forwards;
+    /* FF 5+ */
+    -o-animation-fill-mode: forwards;
+    /* Not implemented yet */
+    -ms-animation-fill-mode: forwards;
+    /* IE 10+ */
+    animation-fill-mode: forwards;
+    /* When the spec is finished */
+}
+
+@keyframes stackOutAnimation {
+    0% {
+        z-index: var(--current-z-index);
+    }
+
+    50% {
+        z-index: var(--current-z-index);
+    }
+
+    100% {
+        z-index: 45;
+    }
+}
+
+@keyframes slideFromLeft {
+    50% {
+        left: -370px;
+    }
+}
+
+@keyframes slideFromRight {
+    50% {
+        left: 470px;
+    }
 }
